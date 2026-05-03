@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #135bec;
+  --color-primary-hover: #0f4db8;
+  --color-background-light: #f2f3f5;
+  --color-background-dark: #101622;
+  --color-rating-again: #ef4444;
+  --color-rating-hard: #f97316;
+  --color-rating-good: #135bec;
+  --color-rating-easy: #22c55e;
+
+  --font-display: 'Lexend Variable', system-ui, sans-serif;
+  --font-sans: 'Lexend Variable', system-ui, -apple-system, sans-serif;
+
+  --radius-default: 0.5rem;
+  --radius-lg: 0.625rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  --max-width-app: 1080px;
+}
+
+body {
+  font-family: 'Lexend Variable', system-ui, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.landing-card-markdown {
+  @apply prose prose-slate max-w-none
+    [&_p]:my-2
+    [&_ul]:my-3 [&_ul]:list-disc [&_ul]:pl-6
+    [&_li]:my-1
+    [&_code]:rounded [&_code]:bg-slate-200/90 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-slate-900;
+}
+
+.landing-card-markdown code::before,
+.landing-card-markdown code::after {
+  content: none;
+}
+
+.landing-study-fallback[hidden] {
+  display: none;
+}
