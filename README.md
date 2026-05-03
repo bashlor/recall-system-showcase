@@ -152,20 +152,3 @@ Decisions become explainable: why a state machine, why stable interfaces, why ti
 **Trade-offs**
 
 Accept technically imperfect choices when they serve the product, while keeping boundaries explicit so those choices stay reversible.
-
-
-## Run locally
-
-```bash
-npm install
-npm run dev
-```
-
-Open [http://localhost:5173](http://localhost:5173). The engineering notes route is [http://localhost:5173/engineering-notes](http://localhost:5173/engineering-notes) (SPA fallback is enabled in Vite).
-
-```bash
-npm run build   # Typecheck + production bundle
-npm run preview # Serve the build
-```
-
----
