@@ -1,6 +1,7 @@
 import './style.css';
 
 import { engineeringNotesHtml } from './engineeringNotesPage.js';
+import { notFoundHtml } from './notFoundPage.js';
 
 const LANDING_BRAND_NAME = 'Recall System';
 const LANDING_APP_ICON_URL = '/favicon.svg';
@@ -34,16 +35,31 @@ if (!app) {
   throw new Error('Missing #app root');
 }
 
-function isEngineeringNotesPath(): boolean {
+type AppRoute = 'engineering-notes' | 'landing' | 'not-found';
+
+function getRoute(): AppRoute {
   const normalized =
     window.location.pathname.replace(/\/+$/, '') || '/';
-  return normalized === '/engineering-notes';
+  if (normalized === '/engineering-notes') {
+    return 'engineering-notes';
+  }
+  if (normalized === '/') {
+    return 'landing';
+  }
+  return 'not-found';
 }
 
-const onEngineeringNotes = isEngineeringNotesPath();
+const route = getRoute();
 
-if (onEngineeringNotes) {
+if (route === 'engineering-notes') {
+  document.title = `Engineering notes · ${LANDING_BRAND_NAME}`;
   app.innerHTML = engineeringNotesHtml({
+    brandName: LANDING_BRAND_NAME,
+    iconUrl: LANDING_APP_ICON_URL,
+  });
+} else if (route === 'not-found') {
+  document.title = `Page not found · ${LANDING_BRAND_NAME}`;
+  app.innerHTML = notFoundHtml({
     brandName: LANDING_BRAND_NAME,
     iconUrl: LANDING_APP_ICON_URL,
   });
@@ -417,7 +433,7 @@ if (yearNode) {
   yearNode.textContent = String(new Date().getFullYear());
 }
 
-if (!onEngineeringNotes) {
+if (route === 'landing') {
   const studyShot = document.querySelector<HTMLImageElement>(
     '.landing-study-shot'
   );
