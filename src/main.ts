@@ -1,10 +1,12 @@
 import './style.css';
 
+import { architectureHtml } from './architecturePage.js';
 import { engineeringNotesHtml } from './engineeringNotesPage.js';
 import { notFoundHtml } from './notFoundPage.js';
 
 const LANDING_BRAND_NAME = 'Recall System';
 const LANDING_APP_ICON_URL = '/favicon.svg';
+const LANDING_DEV_BUILD_URL = 'https://app-recall-system.elie-patrice.fr';
 const LANDING_STUDY_WEBP = { height: 776, width: 1015 } as const;
 const landingHeroQuestionMd =
   'For <code>-rwxr-x---</code>, what can the <strong>owner</strong>, <strong>group</strong>, and <strong>others</strong> each do?';
@@ -35,13 +37,16 @@ if (!app) {
   throw new Error('Missing #app root');
 }
 
-type AppRoute = 'engineering-notes' | 'landing' | 'not-found';
+type AppRoute = 'architecture' | 'engineering-notes' | 'landing' | 'not-found';
 
 function getRoute(): AppRoute {
   const normalized =
     window.location.pathname.replace(/\/+$/, '') || '/';
   if (normalized === '/engineering-notes') {
     return 'engineering-notes';
+  }
+  if (normalized === '/architecture') {
+    return 'architecture';
   }
   if (normalized === '/') {
     return 'landing';
@@ -54,6 +59,12 @@ const route = getRoute();
 if (route === 'engineering-notes') {
   document.title = `Engineering notes · ${LANDING_BRAND_NAME}`;
   app.innerHTML = engineeringNotesHtml({
+    brandName: LANDING_BRAND_NAME,
+    iconUrl: LANDING_APP_ICON_URL,
+  });
+} else if (route === 'architecture') {
+  document.title = `Architecture · ${LANDING_BRAND_NAME}`;
+  app.innerHTML = architectureHtml({
     brandName: LANDING_BRAND_NAME,
     iconUrl: LANDING_APP_ICON_URL,
   });
@@ -85,9 +96,10 @@ if (route === 'engineering-notes') {
           />
           <h2 class="text-lg font-semibold tracking-tight text-slate-900">${LANDING_BRAND_NAME}</h2>
         </a>
-        <nav class="flex items-center gap-5">
+        <nav class="flex flex-wrap items-center justify-end gap-x-4 gap-y-1 sm:gap-x-5">
           <span class="text-sm font-medium text-slate-900">Home</span>
           <a class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900" href="/engineering-notes">Engineering notes</a>
+          <a class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900" href="/architecture">Architecture</a>
         </nav>
       </div>
     </header>
@@ -392,6 +404,47 @@ if (route === 'engineering-notes') {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="development-state-heading"
+        class="relative border-t border-slate-200/60 py-14 sm:py-16"
+      >
+        <div aria-hidden class="absolute inset-0 bg-white/40"></div>
+        <div class="relative mx-auto max-w-3xl px-4 sm:px-8">
+          ${sectionLabel('Status')}
+          <h2
+            class="mb-4 text-xl font-bold tracking-tight text-slate-900 sm:mb-5 sm:text-2xl"
+            id="development-state-heading"
+          >
+            Current Development State
+          </h2>
+          <div class="space-y-4 text-left text-base leading-relaxed text-slate-600 sm:text-[1.0625rem]">
+            <p>
+              Recall System is in active development. The core application already runs locally
+              (web and desktop), while the backend and synchronization architecture are being refined
+              for reliability, consistency, and long-term maintainability.
+            </p>
+            <p>This project is a long-term exploration of:</p>
+            <ul class="list-disc space-y-1.5 pl-5 marker:text-slate-400">
+              <li>retrieval systems</li>
+              <li>local-first architecture</li>
+              <li>contextual memory</li>
+              <li>synchronization tradeoffs</li>
+              <li>technical learning workflows</li>
+            </ul>
+          </div>
+          <div class="mt-8">
+            <a
+              class="inline-flex min-w-[12rem] items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/25 ring-1 ring-primary/20 transition hover:bg-primary/92 hover:shadow-primary/35"
+              href="${LANDING_DEV_BUILD_URL}"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Access development build
+            </a>
           </div>
         </div>
       </section>

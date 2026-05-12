@@ -40,9 +40,10 @@ export function engineeringNotesHtml(
           <img alt="" class="h-9 w-9 shrink-0" decoding="async" height="36" src="${iconUrl}" width="36" />
           <h2 class="text-lg font-semibold tracking-tight text-slate-900">${brandName}</h2>
         </a>
-        <nav class="flex items-center gap-5">
-          <span class="text-sm font-medium text-slate-900">Engineering notes</span>
+        <nav class="flex flex-wrap items-center justify-end gap-x-4 gap-y-1 sm:gap-x-5">
           <a class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900" href="/">Home</a>
+          <span class="text-sm font-medium text-slate-900">Engineering notes</span>
+          <a class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900" href="/architecture">Architecture</a>
         </nav>
       </div>
     </header>
