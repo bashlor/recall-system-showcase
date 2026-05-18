@@ -25,7 +25,7 @@ Short, scannable decisions on backend-shaped product engineering. Copy stays gen
 
 **Context**
 
-A learning product *looks* like CRUD (decks, cards), but users experience sessions, queues, and outcomes that evolve over time.
+A learning product _looks_ like CRUD (decks, cards), but users experience sessions, queues, and outcomes that evolve over time.
 
 **Decision**
 
@@ -55,7 +55,7 @@ Embed scheduling, timers, and spaced repetition rules in the domain layer, with 
 
 **Why**
 
-The system must decide *when* work appears, not just *what* exists. Policies and clocks are part of the model, not an afterthought on top of storage.
+The system must decide _when_ work appears, not just _what_ exists. Policies and clocks are part of the model, not an afterthought on top of storage.
 
 **Trade-offs**
 
@@ -143,7 +143,7 @@ Purely technical optimization produces slices that are locally correct but **glo
 
 **Decision**
 
-Let the product story (capture, practice, memorization, visibility) drive boundaries and layering. Keep business logic independent from infrastructure so storage and runtime can change without redefining what a review or a session *means*.
+Let the product story (capture, practice, memorization, visibility) drive boundaries and layering. Keep business logic independent from infrastructure so storage and runtime can change without redefining what a review or a session _means_.
 
 **Why**
 

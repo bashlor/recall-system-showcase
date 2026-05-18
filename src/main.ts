@@ -1,3 +1,5 @@
+import '@fontsource-variable/inter/index.css';
+import '@fontsource-variable/jetbrains-mono/index.css';
 import './style.css';
 
 import { architectureHtml } from './architecturePage.js';
@@ -40,8 +42,7 @@ if (!app) {
 type AppRoute = 'architecture' | 'engineering-notes' | 'landing' | 'not-found';
 
 function getRoute(): AppRoute {
-  const normalized =
-    window.location.pathname.replace(/\/+$/, '') || '/';
+  const normalized = window.location.pathname.replace(/\/+$/, '') || '/';
   if (normalized === '/engineering-notes') {
     return 'engineering-notes';
   }

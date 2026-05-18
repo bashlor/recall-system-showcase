@@ -10,6 +10,15 @@ export default {
         'primary-hover': 'var(--color-primary-hover)',
         'background-light': 'var(--color-background-light)',
         'background-dark': 'var(--color-background-dark)',
+        'panel-raised': 'var(--color-panel-raised)',
+        'surface-base': 'var(--color-surface-base)',
+        'surface-raised': 'var(--color-surface-raised)',
+        hairline: 'var(--color-hairline)',
+        stroke: 'var(--color-stroke)',
+        muted: 'var(--color-muted)',
+        datum: 'var(--color-datum)',
+        'border-subtle': 'var(--color-border-subtle)',
+        'border-default': 'var(--color-border-default)',
         'rating-again': 'var(--color-rating-again)',
         'rating-hard': 'var(--color-rating-hard)',
         'rating-good': 'var(--color-rating-good)',
@@ -17,6 +26,7 @@ export default {
       },
       fontFamily: {
         display: 'var(--font-display)',
+        mono: 'var(--font-mono)',
         sans: 'var(--font-sans)',
       },
       borderRadius: {
