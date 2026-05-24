@@ -1,4 +1,4 @@
-@import '../../../packages/design-tokens/src/recall-theme.css';
+@import './styles/recall-theme.css';
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 

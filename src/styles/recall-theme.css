@@ -1,0 +1,276 @@
+/*
+ * Vendored copy for standalone deploy (Coolify / recall-system-showcase).
+ * Source of truth: packages/design-tokens/src/recall-theme.css in recall-system-private.
+ * Re-copy when shared tokens change.
+ *
+ * Shared Recall / surgical-dark tokens for Tailwind v4 (@theme).
+ *
+ * Elevation (3 layers):
+ *   L0 canvas  → bg-background-dark
+ *   L1 panel   → bg-surface-dark
+ *   L2 code    → bg-code-surface
+ */
+
+@theme {
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-background-dark: #020617;
+  --color-background-light: #f8fafc;
+  --color-surface-dark: #111827;
+  --color-border-dark: #1e293b;
+  --color-border-muted: #334155;
+  --color-text-primary: #f1f5f9;
+  /* Brighter than muted: supporting labels, table headers, uppercase kickers. */
+  --color-text-secondary: #cbd5e1;
+  /* Lower emphasis: hints, disabled tone, fine print. */
+  --color-text-muted: #a1b4c8;
+
+  /* Markdown prose (Typography plugin) */
+  --color-prose-body: var(--color-text-secondary);
+  --color-prose-muted: var(--color-text-muted);
+  --color-prose-strong: var(--color-text-primary);
+
+  /* GFM tables */
+  --color-table-header-bg: #1e293b;
+  --color-table-row-zebra: color-mix(
+    in srgb,
+    var(--color-surface-dark) 88%,
+    white
+  );
+  --color-table-row-bg: var(--color-surface-dark);
+  --color-table-hover: color-mix(
+    in srgb,
+    var(--color-primary) 14%,
+    transparent
+  );
+  --color-table-border: var(--color-border-muted);
+
+  /* Mermaid SVG */
+  --color-mermaid-node-fill: #1e293b;
+  --color-mermaid-node-stroke: #475569;
+  --color-mermaid-edge: #94a3b8;
+  --color-mermaid-label: var(--color-text-primary);
+
+  /* List / tree row interaction */
+  --color-row-hover: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  --color-row-selected: color-mix(
+    in srgb,
+    var(--color-primary) 16%,
+    var(--color-surface-dark)
+  );
+  --color-row-selected-border: var(--color-primary);
+  --color-rating-again: #f87171;
+  --color-rating-hard: #fbbf24;
+  --color-rating-good: #3b82f6;
+  --color-rating-easy: #10b981;
+  --color-rating-again-surface: color-mix(
+    in srgb,
+    var(--color-rating-again) 12%,
+    transparent
+  );
+  --color-rating-hard-surface: color-mix(
+    in srgb,
+    var(--color-rating-hard) 12%,
+    transparent
+  );
+  --color-rating-good-surface: color-mix(
+    in srgb,
+    var(--color-rating-good) 12%,
+    transparent
+  );
+  --color-rating-easy-surface: color-mix(
+    in srgb,
+    var(--color-rating-easy) 12%,
+    transparent
+  );
+
+  /* Landing / marketing surfaces (dark chrome) */
+  --color-surface-base: #020617;
+  --color-hairline: #1e293b;
+  --color-panel-raised: #111827;
+  --color-datum: #f1f5f9;
+  --color-code-surface: #111827;
+  --color-code-border: #1e293b;
+  --color-study-running-bg: color-mix(
+    in srgb,
+    var(--color-rating-easy) 12%,
+    transparent
+  );
+  --color-study-running-text: var(--color-rating-easy);
+  --color-study-hint-rule: #334155;
+  --color-study-icon-muted: #a1b4c8;
+  /* Session history analytics (scoped L0 canvas + table header band) */
+  --color-history-canvas: #020617;
+  --color-table-header-surface: #1e293b;
+
+  --font-display: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono:
+    'JetBrains Mono Variable', ui-monospace, 'SF Mono', Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  --font-sans:
+    'Inter Variable', ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --radius-default: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-full: 9999px;
+
+  --max-width-app: 1080px;
+
+  /* Panel elevation (overridden in html.light) */
+  --shadow-panel: none;
+}
+
+html.light {
+  color-scheme: light;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-background-dark: #f6f8fa;
+  --color-background-light: #ffffff;
+  --color-surface-dark: #ffffff;
+  --color-border-dark: #e2e8f0;
+  --color-border-muted: #edf2f7;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-prose-body: var(--color-text-secondary);
+  --color-prose-muted: var(--color-text-muted);
+  --color-prose-strong: var(--color-text-primary);
+  --color-table-header-bg: #f1f5f9;
+  --color-table-row-zebra: #f8fafc;
+  --color-table-row-bg: #ffffff;
+  --color-table-hover: color-mix(
+    in srgb,
+    var(--color-primary) 10%,
+    transparent
+  );
+  --color-table-border: var(--color-border-dark);
+  --color-mermaid-node-fill: #f8fafc;
+  --color-mermaid-node-stroke: #cbd5e1;
+  --color-mermaid-edge: #64748b;
+  --color-mermaid-label: #0f172a;
+  --color-row-hover: color-mix(in srgb, var(--color-primary) 6%, transparent);
+  --color-row-selected: color-mix(in srgb, var(--color-primary) 10%, #ffffff);
+  --color-row-selected-border: var(--color-primary);
+  --color-rating-again: #dc2626;
+  --color-rating-hard: #d97706;
+  --color-rating-good: #2563eb;
+  --color-rating-easy: #10b981;
+  --color-rating-again-surface: color-mix(
+    in srgb,
+    var(--color-rating-again) 10%,
+    transparent
+  );
+  --color-rating-hard-surface: color-mix(
+    in srgb,
+    var(--color-rating-hard) 10%,
+    transparent
+  );
+  --color-rating-good-surface: color-mix(
+    in srgb,
+    var(--color-rating-good) 10%,
+    transparent
+  );
+  --color-rating-easy-surface: color-mix(
+    in srgb,
+    var(--color-rating-easy) 10%,
+    transparent
+  );
+
+  --color-surface-base: #f6f8fa;
+  --color-hairline: #e2e8f0;
+  --color-panel-raised: #ffffff;
+  --color-datum: #0f172a;
+  --color-code-surface: #f8fafc;
+  --color-code-border: #e2e8f0;
+  --color-study-running-bg: #f0fdf4;
+  --color-study-running-text: #10b981;
+  --color-study-hint-rule: #f1f5f9;
+  --color-study-icon-muted: #94a3b8;
+  --color-history-canvas: #f6f8fa;
+  --color-table-header-surface: #f8fafc;
+  --shadow-panel: none;
+}
+
+html.dark {
+  color-scheme: dark;
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-background-dark: #020617;
+  --color-background-light: #f8fafc;
+  --color-surface-dark: #111827;
+  --color-border-dark: #1e293b;
+  --color-border-muted: #334155;
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #a1b4c8;
+  --color-prose-body: var(--color-text-secondary);
+  --color-prose-muted: var(--color-text-muted);
+  --color-prose-strong: var(--color-text-primary);
+  --color-table-header-bg: #1e293b;
+  --color-table-row-zebra: color-mix(
+    in srgb,
+    var(--color-surface-dark) 88%,
+    white
+  );
+  --color-table-row-bg: var(--color-surface-dark);
+  --color-table-hover: color-mix(
+    in srgb,
+    var(--color-primary) 14%,
+    transparent
+  );
+  --color-table-border: var(--color-border-muted);
+  --color-mermaid-node-fill: #1e293b;
+  --color-mermaid-node-stroke: #475569;
+  --color-mermaid-edge: #94a3b8;
+  --color-mermaid-label: var(--color-text-primary);
+  --color-row-hover: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  --color-row-selected: color-mix(
+    in srgb,
+    var(--color-primary) 16%,
+    var(--color-surface-dark)
+  );
+  --color-row-selected-border: var(--color-primary);
+  --color-rating-again: #f87171;
+  --color-rating-hard: #fbbf24;
+  --color-rating-good: #3b82f6;
+  --color-rating-easy: #10b981;
+  --color-rating-again-surface: color-mix(
+    in srgb,
+    var(--color-rating-again) 12%,
+    transparent
+  );
+  --color-rating-hard-surface: color-mix(
+    in srgb,
+    var(--color-rating-hard) 12%,
+    transparent
+  );
+  --color-rating-good-surface: color-mix(
+    in srgb,
+    var(--color-rating-good) 12%,
+    transparent
+  );
+  --color-rating-easy-surface: color-mix(
+    in srgb,
+    var(--color-rating-easy) 12%,
+    transparent
+  );
+  --color-surface-base: #020617;
+  --color-hairline: #1e293b;
+  --color-panel-raised: #111827;
+  --color-datum: #f1f5f9;
+  --color-code-surface: #111827;
+  --color-code-border: #1e293b;
+  --color-study-running-bg: color-mix(
+    in srgb,
+    var(--color-rating-easy) 12%,
+    transparent
+  );
+  --color-study-running-text: var(--color-rating-easy);
+  --color-study-hint-rule: #334155;
+  --color-study-icon-muted: #a1b4c8;
+  --color-history-canvas: #020617;
+  --color-table-header-surface: #1e293b;
+  --shadow-panel: none;
+}
